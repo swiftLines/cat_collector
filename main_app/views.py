@@ -16,7 +16,11 @@ def cats_index(request):
     cats = Cat.objects.all()
     return render(request, 'cats/index.html', {'cats': cats})
 
-# Add the Cat class & list and view function below the imports
+# Render cats_detail view
+def cats_detail(request, cat_id):
+    cat = Cat.objects.get(id=cat_id)
+    return render(request, 'cats/detail.html', { 'cat': cat})
+
 
 def __init__(self, name, breed, description, age):
     self.name = name
